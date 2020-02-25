@@ -1,0 +1,198 @@
+Resumo - Clean Code By Abuthol
+Veja o Link Referência: https://www.youtube.com/watch?v=ln6t3uyTveQ
+https://www.slideshare.net/rodrigokono/boas-prticas-tcnica-para-um-cdigo-limpo-clean-code
+
+Criado por Robert C Martin (uncle bob) 
+Também fundado do Movimento Agil
+
+Clean Code -> Metodologia + boas práticas de programação.(livro) 2008
+
+O tio Bob percebeu que o gargalo maior na produção de software estava na MANUTENÇÃO.
+
+Mesmo funcionando, não significa que seja bom. 
+A proporção chega a ser de 10 x 1 (perde-se mais tempo tentando entender o código do que criar código).
+
+Todo código precisa de revisão, o código pode tornar-se obsoleto.Entendendo que sempre podem
+existir atualizações e novas melhorias.
+
+A ideia é tornar o desenvolvimento e a manutenção cada vez mais simples, para evitar criar tudo do Zero.
+
+***** Principios Mais Importantes ******
+
+Nomes
+
+Sejam eles nomes de variáveis,parâmetros ou métodos, na hora de definir os nomes é preciso ir direto no ponto, sem usar apenas iniciais ou letras curtas com a intenção de diminuir código.
+
+Ganha Performace - Perde Manutenibilidade.
+
+Por exemplo - para uma Classe Caneta a melhor prática seria
+
+public class Caneta{
+
+	String marca;
+	String tipo;
+
+	public void Escrever(){
+ 	}	
+}
+
+//outro exemplo
+
+int d; //tempo transcorrido em dias;
+int tempoTranscorridoemDias;
+
+Perceba as diferenças. Os nomes revelam as intenções
+
+Crie nomes Significativos e Legíveis.
+
+private DateTime gerdmahs;
+//melhorando
+private DateTime getDiaMesAnoHoraSegundo;
+
+Ou seja, não faça coisas do tipo mrc para marca nem esc para nomear o método,sempre use o nome correto
+nem que seja um nome grande pra isso.
+
+Uma convenção interessante diz respeito a usar VERBOS - para métodos e funções e para Variáveis e classes
+e objetos usar SUBSTANTIVOS
+
+ex:
+
+Substantivos: Cliente,Caneta,Estoque,
+Verbos ou Frases Verbais:enviar,pagar,salvar,deletar.
+
+***Regra do Escoteiro ***
+
+Deixar uma área mais limpa que a encontrou - Deixar o código mais limpo que encontrou
+Não significa refatorar tudo por completo, pode ser apenas melhorar a leitura. Quebrar Funções
+em partes Menores.
+
+Regra de Realizar Testes Sempre antes de Mudanças
+
+A mudança pode gerar alterações na lógica corrente do sistema.
+
+O código é uma história e precisar ser estruturado como uma história clara simples e pequena
+tipo uma narrativa:
+
+1 Regraª
+Funções precisam ser pequenas.
+
+2ª Regraª
+Funções precisam ser ainda menores.
+
+As funções de modo preterível precisar executar sempre o menor número possível de ações. 
+de preferência uma ação por método. Isso facilita o reuso dessa função dentro do código,
+mesmo que o número de funções seja maior.
+
+Ganho de Manutenção, Ganho de Reuso, Perda em Desempenho
+
+O Poo ajuda muito nas regras acima.(sobrecarga) 
+
+Dry - Dont repeat yourself
+
+ou seja, ambiguidade, não podemos ter duas coisas fazendo a mesma coisa.
+
+** COMENTÁRIOS  **
+
+São necessários, mas o código bem inscrito é melhor que muitos comentários.
+Deixe que o código diga o que ele faz, só o necessário juntamente revisado com o código.
+
+** Erros ** 
+
+Saber tratar erros e exceptions e blocos try catch - Devem capturar exceções de forma global
+os métodos já possuem formas de retorno específicas 
+
+Nunca retorne null, na tentativa de esconder o erro.
+
+Evitar geração de excessões.
+
+Testes Limpos (agile e TDD)
+
+Um código precisa ser limpo (validado pelos testes que devem ser limpos também)
+
+Regras de Teste
+
+FIRST - F - Fast, I - Independent,R - Repeatable , S - Self Validated, T - Timely
+
+Fast - Os testes devem ser rapidos para serem realizados a todo e a qualquer momento
+Independent - Evitar o efeito cascata quando há uma falha (Testes em grupo não entra nessa regra)
+Repeatable - Repetir o teste diversas vezes em ambientes diferentes.
+SelfValidation - Testes bem escritos não retornam respostas ambíguas é TRUE or FALSE
+Timely - Pontualidade, cada teste escrito antes do código (evitar complexidade pós teste)
+
+*** Funções e Métodos ***
+
+Respeite endentação.
+Muitos níveis -> muita responsabilidade
+O método deve fazer uma única coisa,e fazer direito.
+Mais de uma coisa dentro do método, fatiar e cortar
+O código deve ser uma espécie de NARRATIVA.contar uma história.
+Muitos argumentos = CODE SMELL
+Existem algumas regras para a quantidade argumentos
+Argumentos Booleanos, em geral, não são bons.
+
+
+*** Comentários ***
+
+Muitos comentários = Ruim 
+Mas comentários não são ruims,nessa parte eu discordo parcialmente. Porém é preciso uma boa narrativa.
+Comentários Bons
+comentários sobre licença
+comentários informativos
+necessidade de explicação de negócio.
+
+código ruim
+//Check to see if the employee is elegible for full benefits
+if((employee.flags & HOULY_FLAG) && (employee.age > 65)){
+	//...
+
+}
+código bom.
+
+if(employee.isElegibleForFullBenefits()){
+	...
+}
+
+ *** Lei de Dementer ***
+
+
+Um método M de uma classe C só conhece:
+
+-Métodos de C
+-Objetos criados por M
+-Objetos passados como argumentos para M
+-Objetos em variáveis de instâncias de C
+
+Em resumo, é ver uma classe como sendo uma entidade altamente definida.
+
+*** Excessões ***
+
+Exceções ao invés de código de erro.
+Basicamente ao invés de lançar um monte de exceções a cada tentativa 
+lance uma apenas.
+Excessões Genéricas? não use, mas tem muita excessão generica padrão o que é melhor que nada,
+Não Retorne Null - não mesmo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
