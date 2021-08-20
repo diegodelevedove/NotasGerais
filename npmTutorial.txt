@@ -1,0 +1,50 @@
+=========== Gestão de Pacotes npm ============
+
+Gestão de pacotes e depedencias (node js)
+npm = node package manager
+
+escolha o pacote ou pasta pra instalar o aplicativo
+na linha de comando digite
+npm install ou instale o node via .exe pro caso de ser windows
+depois de instalado liste a versão
+npm --version (verifica se instalou)
+
+rodando o npm
+npm run 
+
+exemplo:
+D3 lib de gráficos
+basta entrar com o comando
+npm install d3
+ele vai criar todos os arquivos do repositório na pasta
+
+listando pacotes que foram instalados
+npm list
+
+Todo pacote tem que ter um packet.json
+se ele não iniciar no instal basta entrar com
+npm init 
+é onde o node olha antes de iniciar o projeto
+
+Concertando as dependencias
+npm audit fix --force (Atenção nessa flag)
+
+iniciar o serviço
+npm serve
+tem que tá dentro da pasta
+
+startar o serviço novo 
+npm start
+
+Verificando o repositório principal
+npm ping
+
+*** Questão importante ***
+
+A gestão de pacotes é única ou seja
+se você tem dois projetos, então é necessário ter duas pastas
+raizes cada qual com seu conjunto de pacote do node
+
+
+
+
