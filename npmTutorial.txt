@@ -9,6 +9,10 @@ npm install ou instale o node via .exe pro caso de ser windows
 depois de instalado liste a versão
 npm --version (verifica se instalou)
 
+iniciano o npm na pasta workspace
+
+npm init
+
 rodando o npm
 npm run 
 
